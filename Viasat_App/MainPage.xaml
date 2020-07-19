@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Viasat_App" 
+             x:Class="Viasat_App.MainPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    ios:Page.UseSafeArea="true"
+             Title="Home"
+             >
+    
+        <StackLayout Orientation="Vertical" BackgroundColor="White" Padding="7">
+        
+        <BoxView
+                BackgroundColor="white"
+                MinimumWidthRequest="500"
+                MinimumHeightRequest="300"
+            />
+
+        <Image
+                x:Name="logoImage"
+                Source="http://www.arconics.com/wp-content/uploads/sites/7/2017/12/Viasat-new-logo-nov-17.png"
+                HeightRequest="100"
+                WidthRequest="320"
+            />
+
+        <BoxView
+                BackgroundColor="white"
+                MinimumWidthRequest="500"
+                MinimumHeightRequest="400"
+            />
+        
+        <Button HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="#202E39"
+                x:Name="searchButton"
+                Text="Search"
+                TextColor="White"
+                FontAttributes="Bold"
+                FontSize="35"
+                Clicked="searchButton_Clicked"
+                HeightRequest="100"
+                WidthRequest="500"
+                Margin ="0,5,0,5"
+                CornerRadius="10"
+            />
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="110" />
+                <RowDefinition Height="110" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                x:Name="profileButton"
+                Text="Profile"
+                TextColor="White"
+                FontSize="30"
+                FontAttributes="Bold"
+                Clicked="profileButton_Clicked"
+                Grid.Row="0" Grid.Column="0"
+                BackgroundColor="#BED733"
+                Margin ="0,3,0,3"
+                CornerRadius="10"
+                />
+
+            <Button HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                x:Name="historyButton"
+                Text="History"
+                TextColor="White"
+                FontSize="30"
+                FontFamily="Wingdings"
+                FontAttributes="Bold"
+                Grid.Row="0" Grid.Column="1"
+                BackgroundColor="#009FE3"
+                Margin ="0,3,0,3"
+                Clicked="historyButton_Clicked"
+                CornerRadius="10"
+                />
+            
+            <Button HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                x:Name="favouritesButton"
+                Text="Favorites"
+                TextColor="White"
+                FontSize="30"
+                FontAttributes="Bold"
+                BackgroundColor="#009FE3"
+                Grid.Row="1" Grid.Column="0"
+                Margin ="0,3,0,3"
+                Clicked="favoritesButton_Clicked"
+                CornerRadius="10"
+                />
+            
+            <Button HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                x:Name="commentsButton"
+                Text="Notes"
+                TextColor="White"
+                FontSize="30"
+                FontAttributes="Bold"
+                Grid.Row="1" Grid.Column="1"
+                BackgroundColor="#BED733"
+                Margin ="0,3,0,3"
+                CornerRadius="10"
+                Clicked="personalNotesButton_Clicked"
+                />
+            
+        </Grid>      
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Viasat_App.ResultsPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    ios:Page.UseSafeArea="true"
+             Title="Results"
+             >
+    
+    <ContentPage.Content>
+        
+        <StackLayout>
+                   
+            <ListView Margin="2" HasUnevenRows="true" x:Name="ResultsListView" ItemTapped="itemEntry_Tapped" IsPullToRefreshEnabled="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="6*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                
+                                        <Label
+                                            x:Name="#"
+                                            Grid.Row="0"
+                                            Grid.Column="0"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"
+                                            TextColor="#BED733"
+                                            Text="Item #:"
+                                            Margin="3"
+                                            FontAttributes="Bold"
+                                            />
+                                    
+                                        <Label
+                                            x:Name="itemNumberLabel"
+                                            Grid.Row="1"
+                                            Grid.Column="0"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"
+                                            TextColor="#009FE3"
+                                            Text="{Binding item_number}"
+                                            Margin="3"
+                                            FontAttributes="Bold"
+                                            />
+                                    
+                                        <Label
+                                            x:Name="itemDescriptionLabel"
+                                            Grid.Row="0"
+                                            Grid.Column="1"
+                                            HorizontalOptions="StartAndExpand"
+                                            VerticalOptions="Center"
+                                            Text="{Binding description}"
+                                            />
+                                    
+                                        <Label
+                                            x:Name="itemPartType"
+                                            Grid.Row="1"
+                                            Grid.Column="0"
+                                            Grid.ColumnSpan="2"
+                                            HorizontalOptions="CenterAndExpand"
+                                            VerticalOptions="Center"
+                                            FontAttributes="Bold"
+                                            Text="{Binding part_type}"
+                                            />
+                                    </Grid>
+                                </ViewCell.View>
+                            
+                            
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            
+            </StackLayout>   
+    </ContentPage.Content>
+    
+</ContentPage>

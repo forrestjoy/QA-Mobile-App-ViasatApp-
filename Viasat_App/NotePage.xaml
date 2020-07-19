@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Viasat_App.CommentPage"
+             Title="Note Details"
+             >
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                
+                <Label
+                    x:Name="blank"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"  
+                    Text=""
+                />
+                
+                <Label
+                    x:Name="noteLabel"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    HorizontalOptions="Center"
+                />
+                
+                <Label
+                    x:Name="authorLabel"
+                    Grid.Row="2"
+                    Grid.Column="0" 
+                    TextColor="#009FE3"
+                />
+                
+                <Label
+                    x:Name="dateLabel"
+                    Grid.Row="2"
+                    Grid.Column="1"  
+                    FontAttributes="Bold"
+                />
+                
+                </Grid>      
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

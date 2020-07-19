@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Viasat_App.LoginPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" ios:Page.UseSafeArea="true">
+   
+    
+<StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" >
+        <BoxView
+                BackgroundColor="white"
+                MinimumWidthRequest="500"
+                MinimumHeightRequest="50"
+            />
+        <Image
+                x:Name="logoImage"
+                Source="http://www.arconics.com/wp-content/uploads/sites/7/2017/12/Viasat-new-logo-nov-17.png"
+                HeightRequest="100"
+                WidthRequest="320"
+                />
+        
+
+        <BoxView
+                BackgroundColor="white"
+                MinimumWidthRequest="500"
+                MinimumHeightRequest="200"
+            />
+
+        <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" Padding="5" Margin="5" StyleId="LoginForm" BackgroundColor="#009FE3">
+
+            <BoxView
+                BackgroundColor="#009FE3"
+                MinimumWidthRequest="500"
+                MinimumHeightRequest="700"
+                CornerRadius="10"
+                />
+        
+            <Label
+                x:Name="usernameLabel"
+                Text="User ID:" 
+                FontAttributes="Bold"
+                TextColor="White"
+                FontSize="Medium"
+                />
+        
+            <Entry
+                x:Name="usernameEntry"
+                Placeholder="Username"
+                BackgroundColor="White"
+                />
+            
+            <Label
+                x:Name="passwordLabel"
+                Text="Password:"
+                FontAttributes="Bold"
+                TextColor="White"
+                FontSize="Medium"
+                />
+        
+            <Entry
+                x:Name="passwordEntry"
+                Placeholder="Password"
+                IsPassword="true"
+                BackgroundColor="White"
+                />
+
+            <BoxView
+                BackgroundColor="#009FE3"
+                MinimumWidthRequest="500"
+                MinimumHeightRequest="700"
+                CornerRadius="10"
+                />
+            
+            <Button
+                x:Name="loginButton"
+                Text="Login"
+                TextColor="#202E39"
+                BackgroundColor="#BED733"
+                FontSize="Medium"
+                Clicked="loginButton_Clicked"
+                CornerRadius="10"
+                />
+        
+        </StackLayout>
+    
+        <StackLayout Orientation="Vertical" VerticalOptions="End">
+            <Button
+                x:Name="helpButton"
+                VerticalOptions="End"
+                HorizontalOptions="Center"
+                Text="Help"
+                TextColor="#BED733"
+                FontSize="Medium"
+                />
+            </StackLayout>
+        
+        </StackLayout>
+    
+</ContentPage>

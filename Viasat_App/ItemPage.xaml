@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Viasat_App.ItemPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" ios:Page.UseSafeArea="true"
+             Title="Item Details"
+             >
+    
+    <ContentPage.Content>
+            <StackLayout>
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                
+                <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Grid.Row="0">
+                    
+                    <Label 
+                        x:Name="itemNumberLabel"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Text="{Binding ItemNumber}"
+                        FontSize="Large"
+                        TextColor="#202E39"
+                    />
+                    
+                    <ImageButton
+                        x:Name="favButton"
+                        HeightRequest="30"
+                        WidthRequest="30"
+                        Clicked="favButton_Clicked"
+                    />
+                    
+                </StackLayout>
+              
+                <TableView HasUnevenRows="true" Grid.Row="1" Margin="2">
+                    <TableRoot>
+
+                        
+                            <TableSection>
+                            <ViewCell>
+                                <Label Margin="2">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span
+                                                Text="Description:"
+                                                FontAttributes="Bold"
+                                                TextColor="#009FE3"
+                                                />
+                                            
+                                            <Span
+                                                Text="  "
+                                                />
+                                            
+                                            <Span x:Name="itemDescriptionLabel"
+                                                Text="{Binding ItemDescription}"
+                                                />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </ViewCell>
+                            </TableSection>
+                        
+                            <TableSection>
+                                <ViewCell>
+                                    <Label Margin="2">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+                                                    Text="Part Type:"
+                                                    FontAttributes="Bold"
+                                                    TextColor="#009FE3"
+                                                    />
+                                                
+                                                <Span
+                                                    Text="  "
+                                                    />
+                                                
+                                                <Span x:Name="itemPartTypeLabel"
+                                                    Text="{Binding ItemPartType}"
+                                                    />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </ViewCell>
+                                </TableSection>
+                        
+                             <TableSection>
+                                <ViewCell>
+                                    <Label Margin="2">
+                                        <Label.FormattedText >
+                                            <FormattedString>
+                                                <Span
+                                                    Text="Revision:"
+                                                    FontAttributes="Bold"
+                                                    TextColor="#009FE3"
+                                                    />
+                                                
+                                                <Span
+                                                    Text="  "
+                                                    />
+                                                
+                                                <Span x:Name="itemRevisionLabel"
+                                                    Text="{Binding ItemRevision}"
+                                                    />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </ViewCell>
+                                </TableSection>
+                        
+                                <TableSection>
+                                    <ViewCell>
+                                        <Button
+                                            Text="Components:"
+                                            FontAttributes="Bold"
+                                            TextColor="#009FE3"
+                                            
+                                        />
+                                    </ViewCell>
+                                </TableSection>
+                        
+                             <TableSection>
+                                <ViewCell>
+                                
+                                
+                                    <ListView x:Name="componentsListview" ItemSelected="componentTapped" HeightRequest="100" HorizontalOptions="Center">
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <ViewCell>
+                                                    <ViewCell.View>
+                                                        <Label 
+                                                            x:Name="componentLabel"
+                                                            Text="{Binding .}"
+                                                            />
+                                                        </ViewCell.View>
+                                                    </ViewCell>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>>
+                                        </ListView>
+                                    </ViewCell>
+                                </TableSection>
+
+                                <TableSection>
+                                    <ViewCell>
+                                        <Button
+                                            Text="Notes:"
+                                            FontAttributes="Bold"
+                                            TextColor="#009FE3"
+                                            Clicked="notesButton_Clicked"
+                                        />
+                                    </ViewCell>
+                                </TableSection>
+                                    
+                                <TableSection>
+                                    <ViewCell>  
+                                        <ListView Margin="2" HasUnevenRows="true" x:Name="notesListView" ItemTapped="noteTapped" HeightRequest="100">
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <ViewCell>
+                                                        <ViewCell.View>
+                                                            <Grid>
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition Width="3*"/>
+                                                                    <ColumnDefinition Width="6*"/>
+                                                                    </Grid.ColumnDefinitions>
+                                                                    <Grid.RowDefinitions>
+                                                                    <RowDefinition Height="*"/>
+                                                                    <RowDefinition Height="*"/>
+                                                                    </Grid.RowDefinitions>
+                                                            
+                                                                
+                                                                    <Label
+                                                                        x:Name="commentDescriptionLabel"
+                                                                        Grid.Row="0"
+                                                                        Grid.Column="1"
+                                                                        Grid.ColumnSpan="2"
+                                                                        HorizontalOptions="StartAndExpand"
+                                                                        VerticalOptions="Center"
+                                                                        Text="{Binding note}"
+                                                                        />
+                                                                
+                                                                    <Label
+                                                                        x:Name="commentAuthorLabel"
+                                                                        Grid.Row="1"
+                                                                        Grid.Column="0"
+                                                                        HorizontalOptions="Start"
+                                                                        VerticalOptions="Center"
+                                                                        FontAttributes="Bold"
+                                                                        Text="{Binding author}"
+                                                                        Margin="3"
+                                                                        />
+                                                                
+                                                                    <Label
+                                                                        x:Name="commentDateLabel"
+                                                                        Grid.Row="1"
+                                                                        Grid.Column="1"
+                                                                        HorizontalOptions="End"
+                                                                        VerticalOptions="Center"
+                                                                        FontAttributes="Bold"
+                                                                        Text="{Binding date}"
+                                                                        Margin="3"
+                                                                        />
+                                                                </Grid>
+                                                            </ViewCell.View>
+                                                        </ViewCell>
+                                                    </DataTemplate>
+                                                </ListView.ItemTemplate>
+                                            </ListView>
+                                    </ViewCell>
+                                </TableSection>
+                        
+                        </TableRoot>
+                    </TableView>
+                        
+                </Grid>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Viasat_App.SearchPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    ios:Page.UseSafeArea="true">
+    
+    <ContentPage.Content>
+        
+        <StackLayout Margin="10">
+            
+            <BoxView BackgroundColor="White" HeightRequest="20"/>
+                
+                
+            
+            <Picker x:Name="ParametersPicker" HorizontalOptions="FillAndExpand" Title="Parameters">
+                <Picker.Items>
+                <x:String>Part Type</x:String>
+                <x:String>Item Number</x:String>
+                <x:String>ID</x:String>
+                <x:String>Revision</x:String>
+                <x:String>Description</x:String>
+                </Picker.Items>
+            </Picker>
+            
+            
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        
+                        <Entry
+                            x:Name="ParameterEntry" 
+                            Placeholder="Enter a value"
+                            HorizontalOptions="FillAndExpand"
+                            Text=""
+                        />
+                            
+                        <Button
+                            x:Name="addParameter_Button"
+                            Text="Add"
+                            FontAttributes="Bold"
+                            TextColor="#BED733"
+                            Clicked="addParameterButton_Clicked"
+                        />
+                            
+                    </StackLayout>
+        
+            <Button 
+                HorizontalOptions="Center" 
+                VerticalOptions="Center"
+                x:Name="searchButton"
+                Text="Search"
+                Clicked="resultsButton_Clicked"
+                />
+            
+            <ListView x:Name = "ParameterListView" HorizontalOptions="Center" VerticalOptions="Center">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                        
+                                        <Label
+                                            Text="{Binding key}"
+                                            Grid.Column="0"
+                                            Grid.Row="0"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"
+                                            />
+                                        
+                                        <Label
+                                            Text="{Binding value}"
+                                            Grid.Column="1"
+                                            Grid.Row="0"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"
+                                            />
+                                </Grid>
+                            </ViewCell.View>
+                            
+                            <ViewCell.ContextActions>
+                                <MenuItem
+                                    Text="Delete"
+                                    Clicked="Handle_DeleteParameter"
+                                    IsDestructive="True"
+                                    CommandParameter="{Binding .}"
+                                />
+                            </ViewCell.ContextActions>
+                            
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            <BoxView
+                BackgroundColor="White"
+                MinimumWidthRequest="500"
+                MinimumHeightRequest="400"
+                />
+         
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
